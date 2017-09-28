@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "ticketWebApp",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
