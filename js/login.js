@@ -7,8 +7,10 @@ $(document).ready(function(){
 		var username = $('#inputUsername').val();
 		var password = $('#inputPassword').val();
 		var authenticated = false;
-
-		empRef.once('value').then(function(data){
+		if(username == "" || password == ""){
+			alert("Please fill both fields")
+		} else {
+			empRef.once('value').then(function(data){
 
 			//console.log(data.val());
 			var employee = data.val();
@@ -34,5 +36,6 @@ $(document).ready(function(){
 				//$(this).load("index.html");
 			}
 		});
+		}
 	});
 });

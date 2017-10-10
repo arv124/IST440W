@@ -9,34 +9,41 @@ $(document).ready(function(){
 		var username = $('#inputUsername').val();
 		var employeeID = "";
 
-		empRef.limitToLast(1).once("value", function(data){
+		if(firstName != "" && lastName != "" && username != ""
+			&& password != "" && confirmPassword != "" 
+			&& password === confirmPassword){
 
-			var employee = data.val();
-			//console.log(employee);
-			//console.log(employee.employeeID)
-			$.each(employee, function(i, item){
-				employeeID = +employee[i].employeeID + +1;
-				console.log(employeeID);			
-			});		
+			empRef.limitToLast(1).once("value", function(data){
 
-			var jsonData = {
+				var employee = data.val();
+				//console.log(employee);
+				//console.log(employee.employeeID)
+				$.each(employee, function(i, item){
+					employeeID = +employee[i].employeeID + +1;
+					//console.log(employeeID);			
+				});		
 
-			employeeID: employeeID,
-			firstName: firstName,
-			lastName: lastName,
-			password: password,
-			username: username
+				var jsonData = {
 
-			};
+				employeeID: employeeID,
+				firstName: firstName,
+				lastName: lastName,
+				password: password,
+				username: username
 
-			if(password === confirmPassword){
-				empRef.push(jsonData);
-				//console.log(jsonData);
-				alert('You Have Successfully Registered');
-			} else {
-				alert('Passwords do not match');
-			}
-		});
+				};
+
+				if(password === confirmPassword){
+					//empRef.push(jsonData);
+					//console.log(jsonData);
+					alert('You Have Successfully Registered');
+				} else {
+					alert('Passwords do not match');
+				}
+			});
+		} else {
+			alert("Form incomplete");
+		}
 		//console.log(employeeID);
 	});
 });
