@@ -2,7 +2,6 @@ $(document).ready(function(){
 	$('#registerButton').click(function(){
 		var database = firebase.database();
 		var empRef = database.ref('Employees');
-		empRef.on('value', snap => console.log(snap.val()));
 		var firstName = $('#inputFirstName').val();
 		var lastName = $('#inputLastName').val();
 		var password = $('#inputPassword').val();
@@ -13,8 +12,8 @@ $(document).ready(function(){
 		empRef.limitToLast(1).once("value", function(data){
 
 			var employee = data.val();
-			console.log(employee);
-			console.log(employee.employeeID)
+			//console.log(employee);
+			//console.log(employee.employeeID)
 			$.each(employee, function(i, item){
 				employeeID = +employee[i].employeeID + +1;
 				console.log(employeeID);			
@@ -32,12 +31,12 @@ $(document).ready(function(){
 
 			if(password === confirmPassword){
 				empRef.push(jsonData);
-				console.log(jsonData);
+				//console.log(jsonData);
 				alert('You Have Successfully Registered');
 			} else {
 				alert('Passwords do not match');
 			}
 		});
-		console.log(employeeID);
+		//console.log(employeeID);
 	});
 });
