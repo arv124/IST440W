@@ -10,8 +10,7 @@ $(document).ready(function(){
 		var employeeID = "";
 
 		if(firstName != "" && lastName != "" && username != ""
-			&& password != "" && confirmPassword != "" 
-			&& password === confirmPassword){
+			&& password != "" && confirmPassword != ""){
 
 			empRef.limitToLast(1).once("value", function(data){
 
@@ -34,8 +33,8 @@ $(document).ready(function(){
 				};
 
 				if(password === confirmPassword){
-					//empRef.push(jsonData);
 					//console.log(jsonData);
+					empRef.push(jsonData);
 					alert('You Have Successfully Registered');
 				} else {
 					alert('Passwords do not match');
