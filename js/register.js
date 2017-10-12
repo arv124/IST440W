@@ -6,10 +6,10 @@ $(document).ready(function(){
 		var lastName = $('#inputLastName').val();
 		var password = $('#inputPassword').val();
 		var confirmPassword = $('#confirmPassword').val();
-		var username = $('#inputUsername').val();
+		var email = $('#inputEmail').val();
 		var employeeID = "";
 
-		if(firstName != "" && lastName != "" && username != ""
+		if(firstName != "" && lastName != "" && email != ""
 			&& password != "" && confirmPassword != ""){
 
 			empRef.limitToLast(1).once("value", function(data){
@@ -28,13 +28,19 @@ $(document).ready(function(){
 				firstName: firstName,
 				lastName: lastName,
 				password: password,
-				username: username
+				email: email
 
 				};
 
 				if(password === confirmPassword){
 					//console.log(jsonData);
 					empRef.push(jsonData);
+					firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(){
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						console.log(errorCode);
+						console.log(errorMessage);
+					});
 					alert('You Have Successfully Registered');
 				} else {
 					alert('Passwords do not match');

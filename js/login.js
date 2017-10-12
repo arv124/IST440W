@@ -1,25 +1,33 @@
 $(document).ready(function(){
 	$('#loginButton').click(function(){
-
-		alert("Clicked");
 		var database = firebase.database();
 		var empRef = database.ref('Employees');
-		var username = $('#inputUsername').val();
+		var email = $('#inputEmail').val();
 		var password = $('#inputPassword').val();
 		var authenticated = false;
-		if(username == "" || password == ""){
+		if(email == "" || password == ""){
 			alert("Please fill both fields")
 		} else {
+
+			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(){
+				alert("Authentication Failed");
+				var errorCode = error.code;
+				var errorMessage = error.message;
+				console.log(errorCode);
+				console.log(errorMessage);
+			});
+
+			var user = firebase.User.getIdToken(true);
+
+			if(user != null){
+				window.location.href = "index.html";
+			}
+			/*
 			empRef.once('value').then(function(data){
 
-			//console.log(data.val());
 			var employee = data.val();
 
 			$.each(employee, function(i, item){
-
-				console.log(employee.username);
-				console.log(employee.password);
-
 				if(employee[i].username === username
 				&& employee[i].password === password){
 					console.log("Authenticated");
@@ -32,10 +40,10 @@ $(document).ready(function(){
 			console.log(authenticated);
 			if(authenticated === true){
 				console.log("Page Loaded");
-				//load index with authenticated attrib
-				//$(this).load("index.html");
+				window.location.href = "index.html";
 			}
 		});
+		*/
 		}
 	});
 });
