@@ -42,6 +42,7 @@ $(document).ready(function(){
 						console.log(errorMessage);
 					});
 					alert('You Have Successfully Registered');
+					window.location.href = "login.html";
 				} else {
 					alert('Passwords do not match');
 				}

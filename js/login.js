@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('#loginButton').click(function(){
 		var database = firebase.database();
+		const auth = firebase.auth();
 		var empRef = database.ref('Employees');
 		var email = $('#inputEmail').val();
 		var password = $('#inputPassword').val();
@@ -9,7 +10,7 @@ $(document).ready(function(){
 			alert("Please fill both fields")
 		} else {
 
-			firebase.auth().signInWithEmailAndPassword(email, password).catch(function(){
+			const promise = auth.signInWithEmailAndPassword(email, password).catch(function(){
 				alert("Authentication Failed");
 				var errorCode = error.code;
 				var errorMessage = error.message;
@@ -17,12 +18,15 @@ $(document).ready(function(){
 				console.log(errorMessage);
 			});
 
-			var user = firebase.User.getIdToken(true);
-
-			if(user != null){
-				window.location.href = "index.html";
-			}
-			/*
+			auth.onAuthStateChanged(firebaseUser => {
+				if(firebaseUser) {
+					console.log(firebaseUser);
+					console.log("authenticated");
+				} else {
+					console.log("not logged in");
+				}
+			});
+/*
 			empRef.once('value').then(function(data){
 
 			var employee = data.val();
