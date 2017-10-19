@@ -263,6 +263,20 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
+    <script src="js/authenticate.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAPfq696sMh8NlSMmB8x8I1hw67H0gORmQ",
+        authDomain: "ist440w-54b68.firebaseapp.com",
+        databaseURL: "https://ist440w-54b68.firebaseio.com",
+        projectId: "ist440w-54b68",
+        storageBucket: "ist440w-54b68.appspot.com",
+        messagingSenderId: "790733765519"
+      };
+      firebase.initializeApp(config);
+    </script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-charts.min.js"></script>
   </div>

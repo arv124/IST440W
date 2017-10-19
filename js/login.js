@@ -7,11 +7,10 @@ $(document).ready(function(){
 		var password = $('#inputPassword').val();
 		var authenticated = false;
 		if(email == "" || password == ""){
-			alert("Please fill both fields")
+			alert("Please fill in both fields")
 		} else {
 
 			const promise = auth.signInWithEmailAndPassword(email, password).catch(function(){
-				alert("Authentication Failed");
 				var errorCode = error.code;
 				var errorMessage = error.message;
 				console.log(errorCode);
@@ -20,10 +19,9 @@ $(document).ready(function(){
 
 			auth.onAuthStateChanged(firebaseUser => {
 				if(firebaseUser) {
-					console.log(firebaseUser);
-					console.log("authenticated");
+					window.location.href = "index.html";
 				} else {
-					console.log("not logged in");
+					alert("Invalid email or password");
 				}
 			});
 /*

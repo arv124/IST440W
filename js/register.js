@@ -11,45 +11,49 @@ $(document).ready(function(){
 
 		if(firstName != "" && lastName != "" && email != ""
 			&& password != "" && confirmPassword != ""){
+			if(password.length < 6)
+			{
+				empRef.limitToLast(1).once("value", function(data){
 
-			empRef.limitToLast(1).once("value", function(data){
+					var employee = data.val();
+					//console.log(employee);
+					//console.log(employee.employeeID)
+					$.each(employee, function(i, item){
+						employeeID = +employee[i].employeeID + +1;
+						//console.log(employeeID);			
+					});		
 
-				var employee = data.val();
-				//console.log(employee);
-				//console.log(employee.employeeID)
-				$.each(employee, function(i, item){
-					employeeID = +employee[i].employeeID + +1;
-					//console.log(employeeID);			
-				});		
+					var jsonData = {
 
-				var jsonData = {
+					employeeID: employeeID,
+					firstName: firstName,
+					lastName: lastName,
+					password: password,
+					email: email
 
-				employeeID: employeeID,
-				firstName: firstName,
-				lastName: lastName,
-				password: password,
-				email: email
+					};
 
-				};
-
-				if(password === confirmPassword){
-					//console.log(jsonData);
-					empRef.push(jsonData);
-					firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(){
-						var errorCode = error.code;
-						var errorMessage = error.message;
-						console.log(errorCode);
-						console.log(errorMessage);
-					});
-					alert('You Have Successfully Registered');
-					window.location.href = "login.html";
-				} else {
-					alert('Passwords do not match');
-				}
-			});
+					if(password === confirmPassword){
+						//console.log(jsonData);
+						empRef.push(jsonData);
+						firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(){
+							var errorCode = error.code;
+							var errorMessage = error.message;
+							console.log(errorCode);
+							console.log(errorMessage);
+						});
+						alert('You Have Successfully Registered');
+						
+					} else {
+						alert('Passwords do not match');
+					}
+				});
+			} else {
+				alert("Form incomplete");
+			}
+			//console.log(employeeID);
 		} else {
-			alert("Form incomplete");
+			alert("Password must be longer than 6 characters");
 		}
-		//console.log(employeeID);
 	});
 });

@@ -366,6 +366,3 @@ footer.sticky-footer {
 @media (min-width: 992px) {
   body.sidenav-toggled footer.sticky-footer {
     width: calc(100% - 55px); } }
-
-a.highlight {
-  color: white;}
