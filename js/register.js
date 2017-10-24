@@ -4,56 +4,59 @@ $(document).ready(function(){
 		var empRef = database.ref('Employees');
 		var firstName = $('#inputFirstName').val();
 		var lastName = $('#inputLastName').val();
+		var email = $('#inputEmail').val();
 		var password = $('#inputPassword').val();
 		var confirmPassword = $('#confirmPassword').val();
-		var email = $('#inputEmail').val();
 		var employeeID = "";
 
 		if(firstName != "" && lastName != "" && email != ""
 			&& password != "" && confirmPassword != ""){
-			if(password.length < 6)
-			{
-				empRef.limitToLast(1).once("value", function(data){
 
-					var employee = data.val();
-					//console.log(employee);
-					//console.log(employee.employeeID)
-					$.each(employee, function(i, item){
-						employeeID = +employee[i].employeeID + +1;
-						//console.log(employeeID);			
-					});		
+			if(password.length > 7){
 
-					var jsonData = {
+				if(password === confirmPassword){
 
-					employeeID: employeeID,
-					firstName: firstName,
-					lastName: lastName,
-					password: password,
-					email: email
+					empRef.limitToLast(1).once("value", function(data){
 
-					};
+						var employee = data.val();
 
-					if(password === confirmPassword){
-						//console.log(jsonData);
-						empRef.push(jsonData);
-						firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(){
+						$.each(employee, function(i, item){
+							employeeID = +employee[i].employeeID + +1;		
+						});		
+
+						var jsonData = {
+						employeeID: employeeID,
+						firstName: firstName,
+						lastName: lastName,
+						password: password,
+						email: email
+						};
+
+						firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
 							var errorCode = error.code;
 							var errorMessage = error.message;
-							console.log(errorCode);
-							console.log(errorMessage);
+							if (errorCode == 'auth/weak-password') {
+							    alert('The password is too weak.');
+							} else {
+							    alert(errorMessage);
+							}
+							success = false;
+						}).then(function(user){
+							empRef.push(jsonData);
+							window.location = "index.html"
+						}).catch(function(error){
+							console.log(error);
 						});
-						alert('You Have Successfully Registered');
-						
-					} else {
-						alert('Passwords do not match');
-					}
-				});
+					});
+				} else {
+					alert("Passwords do not match");
+				}
 			} else {
-				alert("Form incomplete");
+				alert("Password must be at least 8 characters");
 			}
 			//console.log(employeeID);
 		} else {
-			alert("Password must be longer than 6 characters");
+			alert("Form Incomplete");
 		}
 	});
 });
