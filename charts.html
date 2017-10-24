@@ -248,7 +248,7 @@
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
+            <a type="button" id="logout" class="btn btn-primary" href="login.html">Logout</a>
           </div>
         </div>
       </div>
@@ -264,7 +264,6 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script>
-    <script src="js/authenticate.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -277,8 +276,10 @@
       };
       firebase.initializeApp(config);
     </script>
+    <script src="js/authenticate.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-charts.min.js"></script>
+    <script src="js/charts.js"></script>
   </div>
 </body>
 
