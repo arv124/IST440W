@@ -1,29 +1,33 @@
 $(document).ready(function(){
 	$('#loginButton').click(function(){
+
 		var database = firebase.database();
 		const auth = firebase.auth();
 		var empRef = database.ref('Employees');
 		var email = $('#inputEmail').val();
 		var password = $('#inputPassword').val();
-		var authenticated = false;
+
 		if(email == "" || password == ""){
 			alert("Please fill in both fields")
 		} else {
 
-			const promise = auth.signInWithEmailAndPassword(email, password).catch(function(){
+			const promise = auth.signInWithEmailAndPassword(email, password).catch(function(error){
 				var errorCode = error.code;
 				var errorMessage = error.message;
 				console.log(errorCode);
 				console.log(errorMessage);
+				alert("Invalid email or password");
 			});
 
 			auth.onAuthStateChanged(firebaseUser => {
+
 				if(firebaseUser) {
 					window.location.href = "index.html";
-				} else {
-					alert("Invalid email or password");
 				}
+
 			});
+
+			
 /*
 			empRef.once('value').then(function(data){
 
