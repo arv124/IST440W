@@ -25,11 +25,11 @@ $(document).ready(function(){
 						});		
 
 						var jsonData = {
-						employeeID: employeeID,
-						firstName: firstName,
-						lastName: lastName,
-						password: password,
-						email: email
+							employeeID: employeeID,
+							firstName: firstName,
+							lastName: lastName,
+							password: password,
+							email: email
 						};
 
 						firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
@@ -40,7 +40,6 @@ $(document).ready(function(){
 							} else {
 							    alert(errorMessage);
 							}
-							success = false;
 						}).then(function(user){
 							empRef.push(jsonData);
 							window.location = "index.html"
