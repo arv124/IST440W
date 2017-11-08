@@ -17,10 +17,12 @@ div.wide {
 
 div.skny {
   padding-left: 0px;
+  padding-right: 20px;
+  width: 65px;
 }
 
 input.wide {
-  width: 743px;
+  width: 100%;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
 }
