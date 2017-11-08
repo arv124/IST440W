@@ -8,7 +8,27 @@ html {
   min-height: 100%; }
 
 textarea.lg {
-    height: 124px;
+  height: 124px;
+}
+
+div.wide {
+  padding-right: 0px;
+}
+
+div.skny {
+  padding-left: 0px;
+}
+
+input.wide {
+  width: 743px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+button.skny {
+  width: 50px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 body {

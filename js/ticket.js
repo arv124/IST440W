@@ -9,7 +9,7 @@ $(document).ready(function(){
 	var ticket;
 
 	//Updating ticketLabel on page load
-	ticketRef.limitToFirst(1).once("value", function(data){
+	ticketRef.limitToLast(1).once("value", function(data){
 
 		var ticket = data.val();
 		console.log(ticket);
@@ -21,8 +21,8 @@ $(document).ready(function(){
 		ticketLabel.html("Ticket ID: "+ticketID);
 	});
 
-	$('#ticketSubmit').click(function(){
-
+	$('#ticketSubmit').click(function(e){
+		e.preventDefault();
 		//Firebase Variables
 		var user = firebase.auth().currentUser;
 		var empRef = database.ref('Employees');
@@ -69,12 +69,14 @@ $(document).ready(function(){
 					closeDate : closeDate,
 					resolution : resolution
 				};
-				//console.log(jsonData);
+				console.log(jsonData);
 				ticketRef.push(jsonData);
-				location.reload();
+				alert("pushed");
+				//location.reload();
 			});
 		} else {
 			alert("Ticket missing information");
+			return false;
 		}
 	});
 });
