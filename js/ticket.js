@@ -1,14 +1,33 @@
-$(document).ready(fucntion(){
-	$('#ticketSubmit').click(fucntion(){
+$(document).ready(function(){
+	//Firebase Variables
+	var database = firebase.database();
+	var ticketRef = database.ref('TicketSystem/Ticket');
 
-		//Firebase Initializations
-		var database = firebase.database();
+	//Ticket Variables
+	var ticketLabel = $('#ticketID')
+	var ticketID;
+	var ticket;
+
+	//Updating ticketLabel on page load
+	ticketRef.limitToFirst(1).once("value", function(data){
+
+		var ticket = data.val();
+		console.log(ticket);
+
+		$.each(ticket, function(i, item){
+			ticketID = +ticket[i].ticketID + +1;
+		});
+		console.log("ticketID: "+ticketID);
+		ticketLabel.html("Ticket ID: "+ticketID);
+	});
+
+	$('#ticketSubmit').click(function(){
+
+		//Firebase Variables
 		var user = firebase.auth().currentUser;
 		var empRef = database.ref('Employees');
-		var ticketRef = database.ref('Ticket');
-
+		
 		//Ticket Variables
-		var ticketID = "";
 		var customer = $('#customer').val();
 		var employeeID = "";
 		var description = $('#description').val();
@@ -19,11 +38,12 @@ $(document).ready(fucntion(){
 		var severity = +scope + +impact;
 		var openDate = Date();
 		var closeDate = "";
-		var resolution = "incomplete";
+		var resolution = "incomplete";1
 		var jsonData;
 
-		if(userID != "" && description != ""){
+		if(customer != "" && description != ""){
 
+			//Getting Employee ID and assembling JSON data	
 			empRef.once("value", function(data){
 
 				var employee = data.val();
@@ -31,34 +51,27 @@ $(document).ready(fucntion(){
 				$.each(employee, function(i, item){
 					if(employee[i].email === user.email){
 						employeeID = employee[i].email;
+						console.log("ID: "+employeeID)
 					}
 				});
 
-				ticketRef.limitToLast(1).once("value", function(data){
-
-					ticket = data.val();
-					$.each(ticket, function(i, item){
-						ticketID = +ticket.ticketID + +1;
-					});
-
-					jsonData = {
-						ticketID : ticketID,
-						customer : customer,
-						employeeID : employeeID,
-						description : description,
-						location : location,
-						scope : scope,
-						impact : impact,
-						status : status,
-						severity : severity,
-						openDate : openDate,
-						closeDate : closeDate,
-						resolution : resolution
-					};
-
-				}).then(function(){
-					ticketRef.push(jsonData);
-				});		
+				jsonData = {
+					ticketID : ticketID,
+					customer : customer,
+					employeeID : employeeID,
+					description : description,
+					location : location,
+					scope : scope,
+					impact : impact,
+					status : status,
+					severity : severity,
+					openDate : openDate,  
+					closeDate : closeDate,
+					resolution : resolution
+				};
+				//console.log(jsonData);
+				ticketRef.push(jsonData);
+				location.reload();
 			});
 		} else {
 			alert("Ticket missing information");

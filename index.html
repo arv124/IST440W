@@ -170,55 +170,53 @@
       </div>
       <div class="card mb-3">
           <div class="card-header">
-            <i class="fa fa-file"></i>
-            Ticketing Form
-          </div>
-          <div class="card-body" style="background-color:#f0f2f4">
-            <div class="text-center">
-              <!--Set innerHTML of ticketID to current ticket number-->
-              <a id="ticketID" style="font-weight: bold">Ticket ID: 0001</a>
+              <i class="fa fa-file"></i>
+              Ticket Form
             </div>
-            <br>
-            <form>
-              <div class="row">
-                <div class="col">
-                  User ID<br>
-                  <input class="form-control" type="text" name="userID"><br>
-                  Employee ID<br>
-                  <input class="form-control" type="text" name="employeeID"><br>
-                  Short Description<br>
-                  <input class="form-control" type="text" name="description"><br>
-                </div>
-                <div class="col">
-                  Location<br>
-                  <select class="form-control" id="location">
-                    <option value="opt1">Location 1</option>
-                    <option value="opt2">Location 2</option>
-                    <option value="opt3">Location 3</option>
-                    <option value="opt4">Location 4</option>
-                  </select>
-                  <br>
-                  Scope<br>                
-                  <select class="form-control" id="scope">
-                    <option value="scope1">1 - One User</option>
-                    <option value="scope2">2 - Many Users</option>
-                    <option value="scope3">3 - All Users</option>
-                  </select>
-                  <br>
-                  Impact<br>
-                  <select class="form-control" id="impact">
-                    <option value="status1">1 - Work Unaffected</option>
-                    <option value="status2">2 - Work Degraded</option>
-                    <option value="status3">3 - Work Interupted</option>
-                  </select>
-                </div>
-              </div>
+            <div class="card-body" style="background-color:#f0f2f4">
+                <!--Set innerHTML of ticketID to current ticket number-->
+                <a id="ticketID" style="font-weight: bold">Ticket ID:</a>
               <br>
-              <div class="form-group">
-                <a class="btn btn-primary btn-block" href="">Submit</a>
-              </div>
-            </form>
-          </div>
+              <br>
+              <form>
+                <div class="row">
+                  <div class="col">
+                    Customer Name<br>
+                    <input class="form-control" type="text" id="customer"><br>
+                    Short Description<br>
+                    <textarea class="form-control lg" type="text" id="description"></textarea><br>
+                  </div>
+                  <div class="col">
+                    Location<br>
+                    <select class="form-control" id="location">
+                      <option value="north">North Halls</option>
+                      <option value="east">East Halls</option>
+                      <option value="south">South Halls</option>
+                      <option value="west">West Halls</option>
+                      <option value="pollock">Pollock Halls</option>
+                    </select>
+                    <br>
+                    Scope<br>                
+                    <select class="form-control" id="scope">
+                      <option value="1">One User</option>
+                      <option value="2">Many Users</option>
+                      <option value="3">All Users</option>
+                    </select>
+                    <br>
+                    Impact<br>
+                    <select class="form-control" id="impact">
+                      <option value="1">Work Unaffected</option>
+                      <option value="2">Work Degraded</option>
+                      <option value="3">Work Interupted</option>
+                    </select>
+                  </div>
+                </div>
+                <br>
+                <div class="form-group">
+                  <button id="ticketSubmit" class="btn btn-primary btn-block">Submit</button>
+                </div>
+              </form>
+            </div>
       </div>
       <!-- Area Chart Example-->
       <div class="card mb-3">
@@ -291,6 +289,7 @@
       firebase.initializeApp(config);
     </script>
     <script src="js/index.js"></script>
+    <script src="js/ticket.js"></script>
   </div>
 </body>
 

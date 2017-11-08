@@ -7,6 +7,10 @@ html {
   position: relative;
   min-height: 100%; }
 
+textarea.lg {
+    height: 124px;
+}
+
 body {
   overflow-x: hidden; }
 
