@@ -24,13 +24,14 @@ div.skny {
 
 div.thck {
   padding-right: 0px;
-  padding-left: 20px;
-  width: 219px;
+  padding-left: 15px;
+  width: 150px;
 }
 
 input.wide {
   width: 100%;
   border-radius: 0px;
+  border-left: 0px;
 }
 
 button.skny {
@@ -42,7 +43,7 @@ button.skny {
 select.thck {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  width: 200px;
+  width: 100%;
 }
 
 body {

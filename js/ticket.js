@@ -12,12 +12,12 @@ $(document).ready(function(){
 	ticketRef.limitToLast(1).once("value", function(data){
 
 		var ticket = data.val();
-		console.log(ticket);
+		//console.log(ticket);
 
 		$.each(ticket, function(i, item){
 			ticketID = +ticket[i].ticketID + +1;
 		});
-		console.log("ticketID: "+ticketID);
+		//console.log("ticketID: "+ticketID);
 		ticketLabel.html("Ticket ID: "+ticketID);
 	});
 
@@ -51,7 +51,7 @@ $(document).ready(function(){
 				$.each(employee, function(i, item){
 					if(employee[i].email === user.email){
 						employeeID = employee[i].email;
-						console.log("ID: "+employeeID)
+						//console.log("ID: "+employeeID)
 					}
 				});
 
@@ -69,10 +69,11 @@ $(document).ready(function(){
 					closeDate : closeDate,
 					resolution : resolution
 				};
-				console.log(jsonData);
-				ticketRef.push(jsonData);
+				//console.log(jsonData);
+				//ticketRef.push(jsonData);
 				alert("pushed");
-				location.reload();
+				$('#ticketBody').load("index.html #ticketBody")
+				//window.location.reload();
 			});
 		} else {
 			alert("Ticket missing information");
