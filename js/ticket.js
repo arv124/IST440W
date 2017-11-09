@@ -72,7 +72,7 @@ $(document).ready(function(){
 				console.log(jsonData);
 				ticketRef.push(jsonData);
 				alert("pushed");
-				//location.reload();
+				location.reload();
 			});
 		} else {
 			alert("Ticket missing information");

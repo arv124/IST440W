@@ -13,6 +13,7 @@ textarea.lg {
 
 div.wide {
   padding-right: 0px;
+  padding-left: 0px;
 }
 
 div.skny {
@@ -21,16 +22,27 @@ div.skny {
   width: 65px;
 }
 
+div.thck {
+  padding-right: 0px;
+  padding-left: 20px;
+  width: 219px;
+}
+
 input.wide {
   width: 100%;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-radius: 0px;
 }
 
 button.skny {
   width: 50px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+}
+
+select.thck {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  width: 200px;
 }
 
 body {
