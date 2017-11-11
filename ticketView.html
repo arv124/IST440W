@@ -164,16 +164,27 @@
               </form>
             </div>
           </div>
-          <!-- Ticket Edit Starts Here
-          <div class="card mb-3">
+          <!--Ticket Edit Starts Here
+          <div class="card mb-3" id="editForm">
             <div class="card-header">
               <i class="fa fa-file"></i>
-              Edit
+              Edit Form
             </div>
             <div class="card-body" style="background-color:#f0f2f4">
               <form>           
                 <div class="editTicket">
-                  <a id="ticketID" style="font-weight: bold">Ticket ID:</a>
+                  <div class="row">
+                    <div class="col">
+                      <br>
+                      <a id="ticketID" style="font-weight: bold">
+                        <h3>Ticket ID:</h3>
+                      </a>
+                    </div>
+                    <div class="col">
+                      Contact Information
+                      <input class="form-control" id="contactInfo">
+                    </div>
+                  </div>
                   <div class="row">
                     <div class="col">
                       <br>
@@ -181,7 +192,7 @@
                       <br>
                       <input class="form-control" id="customerName">
                       <br>
-                      Employee Email
+                      Employee ID
                       <br>
                       <input class="form-control" id="employeeID">
                       <br>
@@ -253,6 +264,19 @@
           </div>
         -->
         </div>
+      </div>
+      <div class="row">
+      	<div class="col-12">
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-file"></i>
+              Ticket List
+            </div>
+            <div class="card-body" id="#listBody">
+            	<!-- Generate list DOM here on page load -->
+
+            </div>
+          </div>
       </div>
     </div>
     <!-- /.container-fluid-->

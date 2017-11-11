@@ -18,7 +18,7 @@ $(document).ready(function(){
 			ticketID = +ticket[i].ticketID + +1;
 		});
 		//console.log("ticketID: "+ticketID);
-		ticketLabel.html("Ticket ID: "+ticketID);
+		ticketLabel.html("<h3>Ticket ID: "+ticketID+"</h3>");
 	});
 
 	$('#ticketSubmit').click(function(e){
@@ -29,6 +29,7 @@ $(document).ready(function(){
 		
 		//Ticket Variables
 		var customer = $('#customer').val();
+		var contactInfo = $('#contact').val();
 		var employeeID = "";
 		var description = $('#description').val();
 		var location = $('#location').val();
@@ -38,10 +39,10 @@ $(document).ready(function(){
 		var severity = +scope + +impact;
 		var openDate = Date();
 		var closeDate = "";
-		var resolution = "incomplete";1
+		var resolution = "incomplete";
 		var jsonData;
 
-		if(customer != "" && description != ""){
+		if(customer != "" && description != "" && contactInfo != ""){
 
 			//Getting Employee ID and assembling JSON data	
 			empRef.once("value", function(data){
@@ -58,6 +59,7 @@ $(document).ready(function(){
 				jsonData = {
 					ticketID : ticketID,
 					customer : customer,
+					contactInfo : contactInfo,
 					employeeID : employeeID,
 					description : description,
 					location : location,
@@ -70,10 +72,10 @@ $(document).ready(function(){
 					resolution : resolution
 				};
 				//console.log(jsonData);
-				//ticketRef.push(jsonData);
+				ticketRef.push(jsonData);
 				alert("pushed");
-				$('#ticketBody').load("index.html #ticketBody")
-				//window.location.reload();
+				//$('#ticketBody').load("index.html #ticketBody")
+				window.location.reload();
 			});
 		} else {
 			alert("Ticket missing information");
