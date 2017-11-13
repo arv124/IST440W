@@ -13,7 +13,7 @@ textarea.lg {
 
 div.wide {
   padding-right: 0px;
-  padding-left: 0px;
+  padding-left: 15px;
 }
 
 div.skny {
@@ -22,28 +22,33 @@ div.skny {
   width: 65px;
 }
 
-div.thck {
-  padding-right: 0px;
-  padding-left: 15px;
-  width: 150px;
+div.shade{
+  border-color: black;
+  border: 1px;
+  border-left: 0px;
 }
 
 input.wide {
   width: 100%;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 0px;
+}
+
+button.left{
+  background-color: #fff;
   border-radius: 0px;
+  border-color: rgba(0,0,0,.2);
   border-left: 0px;
 }
 
 button.skny {
   width: 50px;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
 }
 
-select.thck {
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  width: 100%;
+.right{
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 
 body {
