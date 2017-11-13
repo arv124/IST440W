@@ -11,6 +11,19 @@ textarea.lg {
   height: 124px;
 }
 
+@media screen and (min-width: 768px) {
+    #adv-search {
+        width: 500px;
+        margin: 0 auto;
+    }
+    .dropdown.dropdown-lg {
+        position: static !important;
+    }
+    .dropdown.dropdown-lg .dropdown-menu {
+        min-width: 500px;
+    }
+}
+
 div.wide {
   padding-right: 0px;
   padding-left: 15px;
