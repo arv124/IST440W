@@ -24,6 +24,27 @@ textarea.lg {
     }
 }
 
+div.filter {
+  width: 400px;
+}
+
+div.padded {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+div.paddedBox {
+  padding-right: 10px;
+  padding-left: 12px;
+}
+
+div.paddedBtn {
+  padding-top: 10px;
+  padding-bottom: 0px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 div.wide {
   padding-right: 0px;
   padding-left: 15px;

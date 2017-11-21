@@ -147,9 +147,9 @@
                   </div>
                   <div class="input-group-btn">
                     <button type="button" class="btn dropdown-toggle skny left" id="toggleFilter" data-toggle="dropdown" aria-expanded="false" style="width:100%;"><span class="caret"></span></button>
-                    <div class="dropdown-menu dropdown-menu-right" id="searchFilter" role="menu">
+                    <div class="dropdown-menu dropdown-menu-right filter" id="searchFilter" role="menu">
                       <form class="form-horizontal" role="form">
-                        <div class="form-group">
+                        <div class="form-group padded">
                           <label for="filter">Filter by</label>
                           <select class="form-control">
                             <option value="all" selected>All Tickets</option>
@@ -157,15 +157,17 @@
                             <option value="closed">Closed Tickets</option>
                           </select>
                         </div>
-                        <div class="form-group">
-                          <label for="contain">Author</label>
+                        <div class="form-group padded">
+                          <label for="contain">Contains</label>
                           <input class="form-control" type="text" />
                         </div>
-                        <div class="form-group">
-                          <label for="contain">Contains the words</label>
-                          <input class="form-control" type="text" />
+                        <div class="form-group paddedBox">
+                          <input type="checkbox" />
+                          Assigned to Me
                         </div>
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        <div class="form-group paddedBtn">
+                          <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                        </div>
                       </form>
                     </div>
                     <div class="skny">
@@ -355,6 +357,7 @@
       firebase.initializeApp(config);
     </script>
     <script src="js/authenticate.js"></script>
+    <script src="js/ticketView.js"></script>
   </div>
 </body>
 
