@@ -133,7 +133,7 @@
         <li class="breadcrumb-item active">Ticket Search</li>
       </ol>
       <div class="row">
-        <div class="col-12">
+        <div class="col-12" id="mainCol">
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-search"></i>
@@ -179,8 +179,74 @@
                 </div>
               </form>
             </div>
+            <div class="card-body">
+              <div class="table-responsive">
+              <table class="table table-bordered" id="ticketTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Customer Name</th>
+                    <th>Short Description</th>
+                    <th>Contact Info</th>
+                    <th>Status</th>
+                    <th>Open date</th>
+                    <th>Priority</th>
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                    <th>Ticket ID</th>
+                    <th>Customer Name</th>
+                    <th>Short Description</th>
+                    <th>Contact Info</th>
+                    <th>Status</th>
+                    <th>Open date</th>
+                    <th>Priority</th>
+                  </tr>
+                </tfoot>
+                <tbody id="tableBody">
+                  <tr>
+                    <td>1</td>
+                    <td>Tiger Nixon</td>
+                    <td>OSX Reformat</td>
+                    <td>twn123@psu.edu</td>
+                    <td>Open</td>
+                    <td>2011/04/25</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Garrett Winters</td>
+                    <td>Virus Troubleshoot</td>
+                    <td>gtw456@psu.edu</td>
+                    <td>Open</td>
+                    <td>2011/07/25</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Ashton Cox</td>
+                    <td>Wireless Setup</td>
+                    <td>alc678@psu.edu</td>
+                    <td>Open</td>
+                    <td>2009/01/12</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Cedric Kelly</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>Edinburgh</td>
+                    <td>22</td>
+                    <td>2012/03/29</td>
+                    <td>$433,060</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          Ticket Edit
+        </div>
+          <--
           <div class="card mb-3" id="editForm">
             <div class="card-header">
               <i class="fa fa-file"></i>
@@ -255,7 +321,7 @@
                         <option value="3">Work Interupted</option>
                       </select>
                       <br>
-                      Short Description<br>
+                      Description<br>
                       <textarea class="form-control lg" type="text" id="description">
                       </textarea>
                       <br>
@@ -271,30 +337,18 @@
                   <div class="row">
                     <div class="col">
                       <br>
-                      <button id="ticketSubmit" class="btn btn-primary btn-block">Submit</button> 
+                      <button id="ticketSubmit" class="btn btn-primary btn-block">Save</button> 
                     </div>
                   </div>
                 </div>
               </form>
             </div>
-          </div>
+          </div> 
         -->
         </div>
       </div>
-      <div class="row">
-      	<div class="col-12">
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fa fa-file"></i>
-              Ticket List
-            </div>
-            <div class="card-body" id="listBody">
-            	<!-- Generate list DOM here on page load -->
-
-            </div>
-          </div>
-      </div>
     </div>
+  </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
