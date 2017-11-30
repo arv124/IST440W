@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('#registerButton').click(function(){
+		alert("clicked");
 		var database = firebase.database();
 		var empRef = database.ref('Employees');
 		var firstName = $('#inputFirstName').val();
@@ -16,37 +17,26 @@ $(document).ready(function(){
 
 				if(password === confirmPassword){
 
-					empRef.limitToLast(1).once("value", function(data){
+					console.log(email);
 
-						var employee = data.val();
-
-						$.each(employee, function(i, item){
-							employeeID = +employee[i].employeeID + +1;		
-						});		
-
-						var jsonData = {
-							employeeID: employeeID,
-							firstName: firstName,
-							lastName: lastName,
-							password: password,
-							email: email
-						};
-
-						firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
-							var errorCode = error.code;
-							var errorMessage = error.message;
-							if (errorCode == 'auth/weak-password') {
-							    alert('The password is too weak.');
-							} else {
-							    alert(errorMessage);
-							}
-						}).then(function(user){
-							empRef.push(jsonData);
-							window.location = "index.html"
+					firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
+						alert("Creating Account");
+						var errorCode = error.code;
+						var errorMessage = error.message;
+						console.log(errorMessage);
+						if (errorCode == 'auth/weak-password') {
+						    alert('The password is too weak.');
+						} else {
+						    alert(errorMessage);
+						}
+					}).then(function(user){
+						alert("Account Created");
+						window.location = "index.html"
 						}).catch(function(error){
-							console.log(error);
-						});
+						console.log(error);
 					});
+
+					
 				} else {
 					alert("Passwords do not match");
 				}

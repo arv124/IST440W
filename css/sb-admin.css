@@ -24,6 +24,30 @@ textarea.lg {
     }
 }
 
+table.unpadded {
+  margin-bottom: 0px;
+}
+
+tr.ticket:hover {
+  background-color: #d9d9d9;
+}
+
+tr.highlight {
+  background-color: #d9d9d9;
+}
+
+tr.tableHead{
+  background-color: rgba(0,0,0,.03);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+tr.tableFoot{
+  background-color: rgba(0,0,0,.03);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 div.filter {
   width: 400px;
 }

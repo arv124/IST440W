@@ -31,6 +31,7 @@ $(document).ready(function(){
 		var customer = $('#customer').val();
 		var contactInfo = $('#contact').val();
 		var employeeID = "";
+		var shortDescription = ""//$('#shortDescription').val();
 		var description = $('#description').val();
 		var location = $('#location').val();
 		var scope = $('#scope').val();
@@ -61,6 +62,7 @@ $(document).ready(function(){
 					customer : customer,
 					contactInfo : contactInfo,
 					employeeID : employeeID,
+					shortDescription : shortDescription,
 					description : description,
 					location : location,
 					scope : scope,
