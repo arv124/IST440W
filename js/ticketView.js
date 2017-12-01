@@ -14,7 +14,7 @@ $(document).ready(function(){
 			if(tickets[i].status === "open" && tickets[i].employeeID === firebase.auth().currentUser.email){
 				ticketID = tickets[i].ticketID;
 				
-				ticketHTML = "<tr id='ticket" + ticketID + "' class='ticket'>" +
+				ticketHTML = "<tr id='" + ticketID + "' class='ticket'>" +
 								"<td>" + ticketID + "</td>" +
 								"<td>" + tickets[i].customer + "</td>" +
 								"<td>" + tickets[i].description + "</td>" +
@@ -28,10 +28,9 @@ $(document).ready(function(){
 			}
 		});
 	
-
 		$('.ticket').click(function(){
-			$('tr').removeClass('highlight');
-			$(this).addClass('highlight');
+			$('tr').removeClass('focus');
+			$(this).addClass('focus');
 		});
 
 		$('#searchFilter').click(function(event){
@@ -41,7 +40,6 @@ $(document).ready(function(){
 		$('#logout').click(function(){
 			firebase.auth().signOut();
 		});
-
 	});
 });
 
