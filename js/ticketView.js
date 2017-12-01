@@ -27,27 +27,21 @@ $(document).ready(function(){
 				//console.log(ticketHTML);
 			}
 		});
-	});
+	
 
-	$('tr').click(function(){
-		console.log(this);
-		$('tr').removeClass('highlight');
-		$(this).addClass('highlight');
-	});;
+		$('.ticket').click(function(){
+			$('tr').removeClass('highlight');
+			$(this).addClass('highlight');
+		});
 
-	$('#searchFilter').click(function(event){
-		event.stopPropagation();
-	});
+		$('#searchFilter').click(function(event){
+			event.stopPropagation();
+		});
 
-	$('#logout').click(function(){
-		firebase.auth().signOut();
-	});
+		$('#logout').click(function(){
+			firebase.auth().signOut();
+		});
 
-	/*
-	$('td').click(function(){
-		$('tr').removeClass('highlight');
-		$(this).parent().addClass('highlight');
-		console.log("clicked");
 	});
-	*/
 });
+
