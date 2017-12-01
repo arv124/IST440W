@@ -4,6 +4,7 @@ $(document).ready(function(){
 	var ticketHTML;
 	var ticketID;
 	var tickets;
+	//var d;
 	
 	ticketRef.once("value", function(data){
 
@@ -15,6 +16,8 @@ $(document).ready(function(){
 
 			if(tickets[i].status === "open" && tickets[i].employeeID === firebase.auth().currentUser.email){
 				ticketID = tickets[i].ticketID;
+
+				//d = Date.parse(tickets[i].openDate);
 				
 				ticketHTML = "<tr id='ticket" + ticketID + "' class='ticket'>" +
 								"<td>" + ticketID + "</td>" +
@@ -22,7 +25,7 @@ $(document).ready(function(){
 								"<td>" + tickets[i].description + "</td>" +
 								"<td>" + tickets[i].contactInfo + "</td>" +
 								"<td>" + tickets[i].status + "</td>" +
-								"<td>" + tickets[i].openDate + "</td>" +
+								"<td>" + tickets[i].openDate.slice(0, 15) + "</td>" +
 								"<td>" + 3 + "</td>" +
 							 "</tr>";				
 				$('#ticketTable').find('tbody').append(ticketHTML);
@@ -40,9 +43,11 @@ $(document).ready(function(){
 		firebase.auth().signOut();
 	});
 
+	/*
 	$('td').click(function(){
 		$('tr').removeClass('highlight');
 		$(this).parent().addClass('highlight');
 		console.log("clicked");
 	});
+	*/
 });

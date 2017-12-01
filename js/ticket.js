@@ -30,7 +30,7 @@ $(document).ready(function(){
 		//Ticket Variables
 		var customer = $('#customer').val();
 		var contactInfo = $('#contact').val();
-		var employeeID = "";
+		var employeeID = user.email;
 		var shortDescription = ""//$('#shortDescription').val();
 		var description = $('#description').val();
 		var location = $('#location').val();
@@ -45,40 +45,44 @@ $(document).ready(function(){
 
 		if(customer != "" && description != "" && contactInfo != ""){
 
-			//Getting Employee ID and assembling JSON data	
-			empRef.once("value", function(data){
+			jsonData = {
+				ticketID : ticketID,
+				customer : customer,
+				contactInfo : contactInfo,
+				employeeID : employeeID,
+				shortDescription : shortDescription,
+				description : description,
+				location : location,
+				scope : scope,
+				impact : impact,
+				status : status,
+				severity : severity,
+				openDate : openDate,  
+				closeDate : closeDate,
+				resolution : resolution
+			};
+			//console.log(jsonData);
+			ticketRef.push(jsonData);
+			alert("pushed");
+			//$('#ticketBody').load("index.html #ticketBody")
+			window.location.reload();
 
-				var employee = data.val();
-
-				$.each(employee, function(i, item){
+			/*
+			$.each(employee, function(i, item){
 					if(employee[i].email === user.email){
 						employeeID = employee[i].email;
 						//console.log("ID: "+employeeID)
 					}
 				});
 
-				jsonData = {
-					ticketID : ticketID,
-					customer : customer,
-					contactInfo : contactInfo,
-					employeeID : employeeID,
-					shortDescription : shortDescription,
-					description : description,
-					location : location,
-					scope : scope,
-					impact : impact,
-					status : status,
-					severity : severity,
-					openDate : openDate,  
-					closeDate : closeDate,
-					resolution : resolution
-				};
-				//console.log(jsonData);
-				ticketRef.push(jsonData);
-				alert("pushed");
-				//$('#ticketBody').load("index.html #ticketBody")
-				window.location.reload();
+			//Getting Employee ID and assembling JSON data	
+			empRef.once("value", function(data){
+
+				var employee = data.val();
+
+				
 			});
+			*/
 		} else {
 			alert("Ticket missing information");
 			return false;
