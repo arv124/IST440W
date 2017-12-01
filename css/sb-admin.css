@@ -33,7 +33,7 @@ tr.ticket:hover {
 }
 
 tr.highlight {
-  background-color: #d9d9d9;
+  background-color: rgba(0,0,0,.05);
 }
 
 thead.tableHead{

@@ -27,14 +27,13 @@ $(document).ready(function(){
 				//console.log(ticketHTML);
 			}
 		});
-
 	});
 
-	$('td').click(function(){
+	$('tr').click(function(){
+		console.log(this);
 		$('tr').removeClass('highlight');
-		$(this).parent().addClass('highlight');
-		console.log("clicked");
-	});
+		$(this).addClass('highlight');
+	});;
 
 	$('#searchFilter').click(function(event){
 		event.stopPropagation();
