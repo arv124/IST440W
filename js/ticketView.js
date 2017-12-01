@@ -4,7 +4,6 @@ $(document).ready(function(){
 	var ticketHTML;
 	var ticketID;
 	var tickets;
-	//var d;
 	
 	ticketRef.once("value", function(data){
 
@@ -12,12 +11,8 @@ $(document).ready(function(){
 
 		$.each(tickets, function(i, item){
 
-			console.log(tickets[i].employeeID);
-
 			if(tickets[i].status === "open" && tickets[i].employeeID === firebase.auth().currentUser.email){
 				ticketID = tickets[i].ticketID;
-
-				//d = Date.parse(tickets[i].openDate);
 				
 				ticketHTML = "<tr id='ticket" + ticketID + "' class='ticket'>" +
 								"<td>" + ticketID + "</td>" +
@@ -33,6 +28,12 @@ $(document).ready(function(){
 			}
 		});
 
+	});
+
+	$('td').click(function(){
+		$('tr').removeClass('highlight');
+		$(this).parent().addClass('highlight');
+		console.log("clicked");
 	});
 
 	$('#searchFilter').click(function(event){
