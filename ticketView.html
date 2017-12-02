@@ -211,6 +211,8 @@
             </div>
             <br>
             <button class="btn btn-primary btn-block" id="editButton">Edit</button>
+            <br>
+            <button class="btn btn-primary btn-block" id="deleteButton">Delete</button>
           </div>
         </div>
           <div class="card mb-3" id="editForm">
@@ -229,8 +231,6 @@
                       </a>
                     </div>
                     <div class="col">
-                      Contact Information
-                      <input class="form-control" id="contactInfo">
                     </div>
                   </div>
                   <div class="row">
@@ -240,9 +240,9 @@
                       <br>
                       <input class="form-control" id="customerName">
                       <br>
-                      Employee ID
+                      Short Description
                       <br>
-                      <input class="form-control" id="employeeID">
+                      <input class="form-control" id="shortDescription">
                       <br>
                       Date Opened
                       <br>
@@ -260,6 +260,12 @@
                       </select>
                     </div>
                     <div class="col">
+                      <br>
+                      Contact Information<br>
+                      <input class="form-control" id="contactInfo">
+                      <br>
+                      Employee ID<br>
+                      <input class="form-control" id="employeeID">
                       <br>
                       Location
                       <br>
@@ -286,24 +292,26 @@
                         <option value="2">Work Degraded</option>
                         <option value="3">Work Interupted</option>
                       </select>
+                      
                       <br>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
                       Description<br>
                       <textarea class="form-control lg" type="text" id="description">
                       </textarea>
                       <br>
-                    </div>
-                  </div> 
-                  <div class="row">
-                    <div class="col">
                       Resolution Notes<br>
-                      <textarea class="form-control lg" type="text" id="resolution">
-                      </textarea>
+                      <textarea class="form-control lg" type="text" id="resolution"></textarea>
                     </div> 
                   </div>
                   <div class="row">
                     <div class="col">
                       <br>
-                      <button id="ticketSubmit" class="btn btn-primary btn-block">Save</button> 
+                      <button id="ticketSubmit" class="btn btn-primary btn-block">Update</button>
+                      <br>
+                      <button id="ticketResolve" class="btn btn-primary btn-block">Resolve</button> 
                     </div>
                   </div>
                 </div>

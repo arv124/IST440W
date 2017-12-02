@@ -17,7 +17,7 @@ $(document).ready(function(){
 				ticketHTML = "<tr id='" + ticketID + "' class='ticket'>" +
 								"<td>" + ticketID + "</td>" +
 								"<td>" + tickets[i].customer + "</td>" +
-								"<td>" + tickets[i].description + "</td>" +
+								"<td>" + tickets[i].shortDescription + "</td>" +
 								"<td>" + tickets[i].contactInfo + "</td>" +
 								"<td>" + tickets[i].status + "</td>" +
 								"<td>" + tickets[i].openDate.slice(0, 15) + "</td>" +
