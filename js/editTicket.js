@@ -55,27 +55,15 @@ $(document).ready(function(){
 		$('#deleteButton').click(function(){
 
 			ticketID = $('.focus').attr('id');
-			var childKey;
-			console.log(tickets);
 
-			
-			$.each(tickets, function(i, item){
+			for (var key in tickets){
 
-				for (var key in tickets[i]){
-
-					//statement is only deleting first key even
-
-					if(tickets[i].ticketID == ticketID){
-						childKey = key;
-						console.log(ticketRef.child(childKey));
-						console.log(tickets[i]);
-						alert("ticket deleted");
-						//ticketRef.child(childKey).remove();
-						$('.focus').remove();
-						return true;
-					}
+				if(tickets[key].ticketID == ticketID){
+					alert("Ticked Deleted");
+					ticketRef.child(key).remove();
+					$('.focus').remove();
 				}
-			});
+			}
 		});
 
 		//Edit Ticket
