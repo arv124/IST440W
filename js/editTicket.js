@@ -28,6 +28,8 @@ $(document).ready(function(){
 		//Populates Edit Form
 		$('#editButton').click(function(){
 
+			$('#editModal').modal('show');
+
 			ticketID = $('.focus').attr('id');
 			//childKey = need to grab childKey where ticketID
 
@@ -52,10 +54,21 @@ $(document).ready(function(){
 			});
 		});
 
+		$('#closeBtn1').click(function(){
+			console.log("clicked");
+			$('#editModal').modal('hide');
+		});
+
+		$('#closeBtn2').click(function(){
+			console.log("clicked");
+			$('#editModal').modal('hide');
+		});
+
 		$('#deleteButton').click(function(){
 
 			ticketID = $('.focus').attr('id');
 
+			//Loop cycles through child keys of tickets and matches ticket id
 			for (var key in tickets){
 
 				if(tickets[key].ticketID == ticketID){

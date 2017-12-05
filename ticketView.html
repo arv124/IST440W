@@ -213,111 +213,121 @@
             <button class="btn btn-primary btn-block" id="editButton">Edit</button>
             <br>
             <button class="btn btn-primary btn-block" id="deleteButton">Delete</button>
-          </div>
-        </div>
-          <div class="card mb-3" id="editForm">
-            <div class="card-header">
-              <i class="fa fa-file"></i>
-              Edit Form
-            </div>
-            <div class="card-body" style="background-color:#f0f2f4">
-              <form>           
-                <div class="editTicket">
-                  <div class="row">
-                    <div class="col">
-                      <br>
-                      <a id="ticketID" style="font-weight: bold">
-                        <h3>Ticket ID:</h3>
-                      </a>
-                    </div>
-                    <div class="col">
-                    </div>
+            <div class="modal fade" id="editModal" role="dialog">
+              <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" id="closeBtn1">&times;</button>
+                    <h4 class="modal-title">Edit Form</h4>
                   </div>
-                  <div class="row">
-                    <div class="col">
-                      <br>
-                      Customer Name
-                      <br>
-                      <input class="form-control" id="customerName">
-                      <br>
-                      Short Description
-                      <br>
-                      <input class="form-control" id="shortDescription">
-                      <br>
-                      Date Opened
-                      <br>
-                      <input class="form-control" id="openDate">
-                      <br>
-                      Date Closed
-                      <br>
-                      <input class="form-control" id="closeDate">
-                      <br>
-                      Status
-                      <br>
-                      <select class="form-control" id="status">
-                        <option value="closed">Closed</option>
-                        <option value="open">Open</option> 
-                      </select>
-                    </div>
-                    <div class="col">
-                      <br>
-                      Contact Information<br>
-                      <input class="form-control" id="contactInfo">
-                      <br>
-                      Employee ID<br>
-                      <input class="form-control" id="employeeID">
-                      <br>
-                      Location
-                      <br>
-                      <select class="form-control" id="location">
-                        <option value="north">North Halls</option>
-                        <option value="east">East Halls</option>
-                        <option value="south">South Halls</option>
-                        <option value="west">West Halls</option>
-                        <option value="pollock">Pollock Halls</option>
-                      </select>
-                      <br>
-                      Scope
-                      <br>                
-                      <select class="form-control" id="scope">
-                        <option value="1">One User</option>
-                        <option value="2">Many Users</option>
-                        <option value="3">All Users</option>
-                      </select>
-                      <br>
-                      Impact
-                      <br>
-                      <select class="form-control" id="impact">
-                        <option value="1">Work Unaffected</option>
-                        <option value="2">Work Degraded</option>
-                        <option value="3">Work Interupted</option>
-                      </select>
-                      
-                      <br>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col">
-                      Description<br>
-                      <textarea class="form-control lg" type="text" id="description">
-                      </textarea>
-                      <br>
-                      Resolution Notes<br>
-                      <textarea class="form-control lg" type="text" id="resolution"></textarea>
+                  <div class="modal-body">
+                    <div class="card mb-3" id="editForm">
+                      <div class="card-body" style="background-color:#f0f2f4">
+                        <form>           
+                          <div class="editTicket">
+                            <div class="row">
+                              <div class="col">
+                                <br>
+                                <a id="ticketID" style="font-weight: bold">
+                                <h3>Ticket ID:</h3>
+                                </a>
+                              </div>
+                              <div class="col">
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <br>
+                                Customer Name
+                                <br>
+                                <input class="form-control" id="customerName">
+                                <br>
+                                Short Description
+                                <br>
+                                <input class="form-control" id="shortDescription">
+                                <br>
+                                Date Opened
+                                <br>
+                                <input class="form-control" id="openDate">
+                                <br>
+                                Date Closed
+                                <br>
+                                <input class="form-control" id="closeDate">
+                                <br>
+                                Status
+                                <br>
+                                <select class="form-control" id="status">
+                                  <option value="closed">Closed</option>
+                                  <option value="open">Open</option> 
+                                </select>
+                              </div>
+                              <div class="col">
+                                <br>
+                                Contact Information<br>
+                                <input class="form-control" id="contactInfo">
+                                <br>
+                                Employee ID<br>
+                                <input class="form-control" id="employeeID">
+                                <br>
+                                Location
+                                <br>
+                                <select class="form-control" id="location">
+                                <option value="north">North Halls</option>
+                                  <option value="east">East Halls</option>
+                                  <option value="south">South Halls</option>
+                                  <option value="west">West Halls</option>
+                                  <option value="pollock">Pollock Halls</option>
+                                </select>
+                                <br>
+                                Scope
+                                <br>                
+                                <select class="form-control" id="scope">
+                                  <option value="1">One User</option>
+                                  <option value="2">Many Users</option>
+                                  <option value="3">All Users</option>
+                                </select>
+                                <br>
+                                Impact
+                                <br>
+                                <select class="form-control" id="impact">
+                                  <option value="1">Work Unaffected</option>
+                                  <option value="2">Work Degraded</option>
+                                  <option value="3">Work Interupted</option>
+                                </select>
+                                <br>
+                              </div>
+                        </div>
+                            <div class="row">
+                              <div class="col">
+                                Description<br>
+                                <textarea class="form-control lg" type="text" id="description">
+                                </textarea>
+                                <br>
+                                Resolution Notes<br>
+                                <textarea class="form-control lg" type="text" id="resolution"></textarea>
+                              </div> 
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <br>
+                                <button id="ticketSubmit" class="btn btn-primary btn-block">Update</button>
+                                <br>
+                                <button id="ticketResolve" class="btn btn-primary btn-block">Resolve</button> 
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
                     </div> 
                   </div>
-                  <div class="row">
-                    <div class="col">
-                      <br>
-                      <button id="ticketSubmit" class="btn btn-primary btn-block">Update</button>
-                      <br>
-                      <button id="ticketResolve" class="btn btn-primary btn-block">Resolve</button> 
-                    </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="closeBtn2">Close</button>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
-          </div> 
+          </div>
+        </div> 
         </div>
       </div>
     </div>
