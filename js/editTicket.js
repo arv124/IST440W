@@ -18,7 +18,6 @@ $(document).ready(function(){
 	var openDate;
 	var closeDate;
 	var resolution;
-	var jsonData;
 
 	ticketRef.once("value", function(data){
 
@@ -54,16 +53,19 @@ $(document).ready(function(){
 			});
 		});
 
+		//Modal Close
 		$('#closeBtn1').click(function(){
 			console.log("clicked");
 			$('#editModal').modal('hide');
 		});
 
+		//Modal Close 
 		$('#closeBtn2').click(function(){
 			console.log("clicked");
 			$('#editModal').modal('hide');
 		});
 
+		//Delete Ticket
 		$('#deleteButton').click(function(){
 
 			ticketID = $('.focus').attr('id');
@@ -79,19 +81,101 @@ $(document).ready(function(){
 			}
 		});
 
-		//Edit Ticket
+		//Update Ticket
 		$('#ticketSubmit').click(function(e){
 			e.preventDefault();
-			console.log(ticketID);
-			database.ref.set({
 
-			});
+			customer = $('#customerName').val();
+			contactInfo = $('#contactInfo').val();
+			employeeID = $('#employeeID').val();
+			shortDescription = $('#shortDescription').val();
+			description = $('#description').val();
+			location = $('#location').val();
+			scope = $('#scope').val();
+			impact = $('#impact').val();
+			status = $('#status').val();
+			severity = +scope + +impact;
+			openDate = $('#openDate').val();
+			closeDate = $('#closeDate').val();
+			resolution = $('#resolution').val();
+
+			for (var key in tickets){
+
+				if(tickets[key].ticketID == ticketID){
+
+					database.ref('TicketSystem/Ticket/' + key).set({
+						ticketID : ticketID,
+						customer : customer,
+						contactInfo : contactInfo,
+						employeeID : employeeID,
+						shortDescription : shortDescription,
+						description : description,
+						location : location,
+						scope : scope,
+						impact : impact,
+						status : status,
+						severity : severity,
+						openDate : openDate,  
+						closeDate : closeDate,
+						resolution : resolution
+					});
+
+					alert("Ticket Updated");
+				}
+			}
 		});
 
 		//Resolve Ticket
-		$('#ticketResolve').click(function(){
+		$('#ticketResolve').click(function(e){
 			e.preventDefault();
-			console.log(ticketID);
+
+			resolution = $('#resolution').val();
+			status = "closed";
+
+			if(resolution == ""){
+
+				alert("Resolution notes are empty");
+
+			} else {
+
+				customer = $('#customerName').val();
+				contactInfo = $('#contactInfo').val();
+				employeeID = $('#employeeID').val();
+				shortDescription = $('#shortDescription').val();
+				description = $('#description').val();
+				location = $('#location').val();
+				scope = $('#scope').val();
+				impact = $('#impact').val();
+				severity = +scope + +impact;
+				openDate = $('#openDate').val();
+				closeDate = Date();
+
+				for (var key in tickets){
+
+					if(tickets[key].ticketID == ticketID){
+
+						database.ref('TicketSystem/Ticket/' + key).set({
+							ticketID : ticketID,
+							customer : customer,
+							contactInfo : contactInfo,
+						    employeeID : employeeID,
+						    shortDescription : shortDescription,
+						    description : description,
+						    location : location,
+						    scope : scope,
+						    impact : impact,
+						    status : status,
+						    severity : severity,
+						    openDate : openDate,  
+						    closeDate : closeDate,
+						    resolution : resolution
+					    });
+
+					    alert("Ticket Resolved");
+					    window.location.reload();
+				    }
+			    }
+			}
 		});
 	});
 });
