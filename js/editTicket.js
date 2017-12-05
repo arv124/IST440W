@@ -121,6 +121,7 @@ $(document).ready(function(){
 					});
 
 					alert("Ticket Updated");
+					window.location.reload();
 				}
 			}
 		});
