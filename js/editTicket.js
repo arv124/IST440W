@@ -130,7 +130,6 @@ $(document).ready(function(){
 			e.preventDefault();
 
 			resolution = $('#resolution').val();
-			status = "closed";
 
 			if(resolution == ""){
 
@@ -146,6 +145,7 @@ $(document).ready(function(){
 				location = $('#location').val();
 				scope = $('#scope').val();
 				impact = $('#impact').val();
+				status = "closed"
 				severity = +scope + +impact;
 				openDate = $('#openDate').val();
 				closeDate = Date();

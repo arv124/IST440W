@@ -209,10 +209,16 @@
                 </tbody>
               </table>
             </div>
-            <br>
-            <button class="btn btn-primary btn-block" id="editButton">Edit</button>
-            <br>
-            <button class="btn btn-primary btn-block" id="deleteButton">Delete</button>
+            <div class="row">
+              <div class="col">
+                <br>
+                <button class="btn btn-primary btn-block" id="editButton">Edit</button>
+              </div>
+              <div class="col">
+                <br>
+                <button class="btn btn-primary btn-block" id="deleteButton">Delete</button>
+              </div> 
+            </div>
             <div class="modal fade" id="editModal" role="dialog">
               <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -311,6 +317,8 @@
                               <div class="col">
                                 <br>
                                 <button id="ticketSubmit" class="btn btn-primary btn-block">Update</button>
+                              </div>
+                              <div class="col">
                                 <br>
                                 <button id="ticketResolve" class="btn btn-primary btn-block">Resolve</button> 
                               </div>
