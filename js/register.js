@@ -1,6 +1,5 @@
 $(document).ready(function(){
 	$('#registerButton').click(function(){
-		alert("clicked");
 		var database = firebase.database();
 		var empRef = database.ref('Employees');
 		var firstName = $('#inputFirstName').val();
@@ -16,8 +15,6 @@ $(document).ready(function(){
 			if(password.length > 7){
 
 				if(password === confirmPassword){
-
-					console.log(email);
 
 					firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
 						alert("Creating Account");

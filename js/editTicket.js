@@ -22,7 +22,7 @@ $(document).ready(function(){
 	ticketRef.once("value", function(data){
 
 		tickets = data.val();
-		console.log(tickets);
+		//console.log(tickets);
 
 		//Populates Edit Form
 		$('#editButton').click(function(){
